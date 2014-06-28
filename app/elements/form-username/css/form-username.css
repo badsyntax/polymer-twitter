@@ -1,0 +1,24 @@
+/* line 1, form-login.scss */
+:host {
+  margin: auto;
+  min-width: 400px;
+}
+
+/* line 6, form-login.scss */
+form {
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* line 14, form-login.scss */
+core-input {
+  border: 1px solid #444;
+}
+
+/* line 18, form-login.scss */
+label {
+  padding-right: 10px;
+}

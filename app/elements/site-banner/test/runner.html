@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example project test runner</title>
+    <link rel="stylesheet" href="../../../components/mocha/mocha.css" />
+    <script src="../../../components/mocha/mocha.js"></script>
+    <script src="../../../components/chai/chai.js"></script>
+    <script src="../../../components/sinonjs/sinon.js"></script>
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <script>
+      this.expect = chai.expect;
+      this.assert = chai.assert;
+      mocha.setup('bdd');
+    </script>
+
+    <!-- Add spec files here -->
+    <script src="../specs/OEEyeDraw.spec.js"></script>
+
+    <!-- Code coverage dependencies -->
+    <script src="../../../assets/components/blanket/dist/qunit/blanket.min.js"
+      data-cover-adapter="../adapters/mocha-blanket.js"></script>
+
+    <!-- Run the tests -->
+    <script>
+    if (navigator.userAgent.indexOf('PhantomJS') < 0) {
+      mocha.run(function done() {});
+    }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "name": "polymer-project",
+  "version": "0.0.0",
+  "authors": [
+    "Richard <willis.rh@gmail.com>"
+  ],
+  "description": "An example polymer project",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.3.3",
+    "core-elements": "Polymer/core-elements#~0.3.3",
+    "paper-elements": "Polymer/paper-elements#~0.3.3",
+    "jquery": "~2.1.1"
+  },
+  "devDependencies": {
+    "mocha": "~1.20.1",
+    "chai": "~1.9.1",
+    "sinonjs": "~1.10.2"
+  }
+}

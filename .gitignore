@@ -1,0 +1,15 @@
+# Node modules
+node_modules
+
+# Bower components
+/app/components
+
+# Sass
+.sass-cache
+
+# App build
+/app/build.html
+/app/build.js
+
+# Node webkit build
+/build

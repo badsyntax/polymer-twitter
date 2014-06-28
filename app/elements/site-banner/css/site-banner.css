@@ -1,0 +1,7 @@
+/* line 1, site-banner.scss */
+:host {
+  background: #4F7DC9;
+  color: #FFF;
+  font-size: 16px;
+  padding: 20px;
+}

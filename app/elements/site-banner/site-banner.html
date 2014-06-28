@@ -1,0 +1,21 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+
+<polymer-element name="site-banner" attributes="name slogan" block>
+  <template>
+    <link rel="stylesheet" href="css/site-banner.css">
+    <header>
+      <h1>{{name}}</h1>
+      <template if="{{slogan}}">
+        <summary>{{slogan}}</summary>
+      </template>
+    </header>
+  </template>
+  <script>
+    Polymer('site-banner', {
+      name: 'Company name',
+      slogan: '',
+      ready: function() {
+      }
+    });
+  </script>
+</polymer-element>
