@@ -23,7 +23,18 @@
         var pages = this.$.pages;
 
         form.addEventListener('success', function(e) {
+
           pages.selected = 1;
+
+          var animation = new Animation(stream, [
+            { opacity: "0" }, 
+            { opacity: "1" }, 
+          ], {
+            duration: 500, 
+            fill: 'forwards'
+          });
+          var player = document.timeline.play(animation);
+
           stream.go(e.detail.username);
         });
         

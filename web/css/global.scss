@@ -8,13 +8,9 @@ site-progress {
 }
 
 site-progress::shadow #activeProgress {
-  background-color: #4F7DC9;
-}
-
-site-progress::shadow #secondaryProgress {
   background-color: #fff;
 }
 
 site-progress::shadow #progressContainer {
-  background-color: #fff;
+  background-color: #4F7DC9;
 }

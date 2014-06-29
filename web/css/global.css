@@ -11,15 +11,10 @@ site-progress {
 
 /* line 10, global.scss */
 site-progress::shadow #activeProgress {
-  background-color: #4F7DC9;
+  background-color: #fff;
 }
 
 /* line 14, global.scss */
-site-progress::shadow #secondaryProgress {
-  background-color: #fff;
-}
-
-/* line 18, global.scss */
 site-progress::shadow #progressContainer {
-  background-color: #fff;
+  background-color: #4F7DC9;
 }

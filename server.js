@@ -7,7 +7,7 @@ var app = express();
  nconf
  .argv()
  .env()
- .file({ file: 'app/config/app.json' });
+ .file({ file: 'config/app.json' });
 
 var twitter = new Twitter({
   consumer_key: nconf.get('twitter_consumer_key'),
@@ -16,7 +16,7 @@ var twitter = new Twitter({
   access_token_secret: nconf.get('twitter_access_token_secret')
 });
 
-app.use('/', express.static(__dirname));
+app.use('/', express.static('web'));
 
 app.get('/timeline/:username/:count/:max_id?', function(req, res, next) {
   twitter.get('/statuses/user_timeline', { 

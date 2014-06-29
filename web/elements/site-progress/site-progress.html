@@ -6,7 +6,7 @@
     Polymer('site-progress', {
       maxRepeat: 5,
       ready: function() {
-        this.value = 100;
+        // this.value = this.value || 100;
       },
       start: function() {
         this.repeat = 0;
@@ -15,7 +15,7 @@
       },
       stop: function() {
         window.cancelAnimationFrame(this.requestId);
-        this.value = 100;
+        this.value = 0;
         this.repeat = 0;
       },
       tick: function() {
