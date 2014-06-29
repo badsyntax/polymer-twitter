@@ -29,6 +29,6 @@ app.get('/timeline/:username/:count/:max_id?', function(req, res, next) {
   });
 });
 
-var server = app.listen(3000, function() {
+var server = app.listen(nconf.get('port'), function() {
   console.log('Listening on port %d', server.address().port);
 });
