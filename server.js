@@ -16,7 +16,7 @@ var twitter = new Twitter({
   access_token_secret: nconf.get('twitter_access_token_secret')
 });
 
-app.use('/', express.static('web'));
+app.use('/', express.static('web/'));
 
 app.get('/timeline/:username/:count/:max_id?', function(req, res, next) {
   twitter.get('/statuses/user_timeline', { 

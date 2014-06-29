@@ -6,7 +6,7 @@
   "main": "web/index.html",
   "repository": "https://github.com/badsyntax/polymer-twitter",
   "scripts": {
-    "build": "compass compile && vulcanize -o app/build.html app/index.html --csp --inline",
+    "build": "compass compile && vulcanize -o web/build.html web/index.html --csp --inline",
     "start": "node server"
   },
   "author": "Richard Willis",
