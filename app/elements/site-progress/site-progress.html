@@ -1,0 +1,37 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../../components/paper-progress/paper-progress.html">
+
+<polymer-element name="site-progress" extends="paper-progress" block>
+  <script>
+    Polymer('site-progress', {
+      maxRepeat: 5,
+      ready: function() {
+        this.value = 100;
+      },
+      start: function() {
+        this.repeat = 0;
+        this.value = this.min;
+        this.tick();
+      },
+      stop: function() {
+        window.cancelAnimationFrame(this.requestId);
+        this.value = 100;
+        this.repeat = 0;
+      },
+      tick: function() {
+        if (this.value < this.max) {
+          this.value += (this.step || 1);
+        } else {
+          if (++this.repeat >= this.maxRepeat) {
+            // finished
+            this.stop();
+            return;
+          }
+          this.value = this.min;
+          Platform.flush();
+        }
+        this.requestId = requestAnimationFrame(this.tick.bind(this));
+      }
+    });
+  </script>
+</polymer-element>

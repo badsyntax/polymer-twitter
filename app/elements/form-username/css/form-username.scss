@@ -1,14 +1,15 @@
 :host {
   margin: auto;
-  min-width: 400px;
+  max-width: 400px;
 }
 
 form {
-  margin-top: 30px;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #bbb;
   border-radius: 5px;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+  -webkit-animation-duration: .6s;
+  // -webkit-animation-name: slidein;
 }
 
 core-input {
@@ -17,4 +18,19 @@ core-input {
 
 label {
   padding-right: 10px;
+}
+
+.help {
+  margin-top: 0;
+}
+
+@-webkit-keyframes slidein {
+  from {
+    -webkit-transform: translate(0, 100%);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translate(0, 0);
+    opacity: 1;
+  }
 }

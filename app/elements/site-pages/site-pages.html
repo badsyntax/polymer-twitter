@@ -1,0 +1,49 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../../components/core-pages/core-pages.html">
+<link rel="import" href="../../components/core-layout/core-layout.html">
+<link rel="import" href="../form-username/form-username.html">
+<link rel="import" href="../twitter-stream/twitter-stream.html">
+
+<polymer-element name="site-pages" block>
+  <template>
+    <link rel="stylesheet" href="css/site-pages.css">
+    <core-layout vertical flex>
+      <core-pages id="pages" flex selected="0">
+        <form-username id="form-username" flex self-center></form-username>
+        <twitter-stream id="twitter-stream"></twitter-stream>
+      </core-pages>
+    </core-layout>
+  </template>
+  <script>
+    Polymer('site-pages', {
+      ready: function() {
+        
+        var stream = this.$['twitter-stream'];
+        var form = this.$['form-username'];
+        var pages = this.$.pages;
+
+        form.addEventListener('success', function(e) {
+          pages.selected = 1;
+          stream.go(e.detail.username);
+        });
+        
+        stream.addEventListener('start', function(e) {
+          e.preventDefault();
+          this.fire('progress-start');
+        }.bind(this));
+
+        stream.addEventListener('stop', function(e) {
+          e.preventDefault();
+          this.fire('progress-stop');
+        }.bind(this));
+
+        stream.addEventListener('error', function(e) {
+          e.preventDefault();
+          alert('There was an error loading the stream.')
+          pages.selected = 0;
+        });
+      }
+    });
+  </script>   
+</polymer-element>
+

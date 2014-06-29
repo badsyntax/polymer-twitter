@@ -7,9 +7,9 @@
   <template>
     <link rel="stylesheet" href="css/form-username.css">
     <form id="form" method="{{method}}" action="{{action}}">
-      <p>Enter your twitter username below to view your stream.</p>
+      <p class="help">Enter your twitter username below to view your stream:</p>
       <core-field>
-        <paper-input id="username" floatingLabel label="Username:" type="text" name="username" value="{{username}}" flex></paper-input>
+        <paper-input id="username" label="Username:" type="text" name="username" value="{{username}}" flex></paper-input>
       </core-field>
       <core-field>
         <paper-button on-click="{{submitForm}}" raisedButton label="View tweets!"></paper-button>
@@ -18,15 +18,32 @@
   </template>
   <script>
   Polymer('form-username', {
-    username: '',
+    username: 'badsyntax',
     password: '',
     action: '',
     method: 'post',
     ready: function() {
+      this.setupValidators();
+      this.focus();
+    },
+    focus: function() {
       this.$.username.$.input.focus();
     },
+    setupValidators: function() {
+      this.$.username.validate = function() {
+        var value = this.toString();
+        return /^[a-zA-Z0-9]+$/.test(value);
+      };
+    },
     submitForm: function() {
-      this.$.username.invalid = true;
+      if (this.username.length === 0) {
+        this.$.username.invalid = true;
+        this.focus();
+        return;
+      }
+      this.fire('success', {
+        username: this.username
+      });
     }
   });
   </script>

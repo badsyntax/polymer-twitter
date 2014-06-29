@@ -1,24 +1,43 @@
-/* line 1, form-login.scss */
+/* line 1, form-username.scss */
 :host {
   margin: auto;
-  min-width: 400px;
+  max-width: 400px;
 }
 
-/* line 6, form-login.scss */
+/* line 6, form-username.scss */
 form {
-  margin-top: 30px;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #bbb;
   border-radius: 5px;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+  -webkit-animation-duration: .6s;
 }
 
-/* line 14, form-login.scss */
+/* line 15, form-username.scss */
 core-input {
   border: 1px solid #444;
 }
 
-/* line 18, form-login.scss */
+/* line 19, form-username.scss */
 label {
   padding-right: 10px;
+}
+
+/* line 23, form-username.scss */
+.help {
+  margin-top: 0;
+}
+
+@-webkit-keyframes slidein {
+  /* line 28, form-username.scss */
+  from {
+    -webkit-transform: translate(0, 100%);
+    opacity: 0;
+  }
+
+  /* line 32, form-username.scss */
+  to {
+    -webkit-transform: translate(0, 0);
+    opacity: 1;
+  }
 }

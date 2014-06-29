@@ -3,17 +3,19 @@
   <head>
     <title>Example polymer project</title>
     <script src="components/platform/platform.js"></script>
-    <script src="components/jquery/dist/jquery.min.js"></script>
+    <script src="components/web-animations-js/web-animations.js"></script>
     <link rel="stylesheet" href="css/global.css" shim-shadowdom>
     <link rel="import" href="components/core-layout/core-layout.html">
-    <link rel="import" href="elements/form-username/form-username.html">
+    <link rel="import" href="elements/site-progress/site-progress.html">
     <link rel="import" href="elements/site-banner/site-banner.html">
+    <link rel="import" href="elements/site-pages/site-pages.html">
     <link rel="import" href="elements/site-footer/site-footer.html">
   </head>
   <body unresolved>
-    <core-layout vertical class="core-fit">
-      <site-banner name="Twitter stream"></site-banner>    
-      <form-username core-flex></form-username> 
+    <core-layout vertical fit>
+      <site-progress></site-progress>
+      <site-banner name="Twitter stream"></site-banner>
+      <site-pages flex layout horizontal></site-pages>     
       <site-footer></site-footer>
     </core-layout>
     <script src="js/app.js"></script>

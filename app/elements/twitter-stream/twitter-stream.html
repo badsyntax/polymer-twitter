@@ -1,0 +1,49 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../../components/core-ajax/core-ajax.html">
+
+<polymer-element name="twitter-stream" extends="core-ajax" block>
+  <template>
+    <link rel="stylesheet" href="css/twitter-stream.css">
+    <core-ajax
+    id="ajax"
+    url="http://localhost:3000/timeline/{{ username }}"
+    handleAs="json"
+    on-core-response="{{handleResponse}}"></core-ajax>
+    <div id="tweets">
+      <template if="{{loading}}">Loading stream...</template>
+      <template repeat="{{tweet in tweets}}">
+        <div class="tweet" on-click="{{viewTweet}}">{{tweet.text}}</div>
+      </template>
+    </div>
+  </template>
+  <script>
+  Polymer('twitter-stream', {
+    username: '',
+    loading: false,
+    tweets: null,
+    ready: function() {
+    },
+    go: function(username) {
+      this.username = username;
+      this.loading = true;
+      this.fire('start');
+      this.$.ajax.go();
+    },
+    handleResponse: function(e, response) {
+      this.loading = false;
+      this.fire('stop');
+      var data = response.response;
+      if (data.error) {
+        this.fire('error');
+      } else {
+        this.fire('success');
+        this.tweets = data.success;
+      }
+    },
+    viewTweet: function(e, detail, sender) {
+      var tweet = e.target.templateInstance.model.tweet;
+      window.location = 'https://twitter.com/' + this.username + '/status/' + tweet.id_str;
+    }
+  });
+  </script>
+</polymer-element>

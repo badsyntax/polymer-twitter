@@ -1,0 +1,20 @@
+:host {
+  margin: auto;
+  min-width: 400px;
+  overflow: auto;
+}
+
+#tweets {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
+
+.tweet {
+  display: block;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  padding: 12px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}

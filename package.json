@@ -5,9 +5,9 @@
   "main": "index.html",
   "scripts": {
     "build": "compass compile && vulcanize -o app/build.html app/index.html --csp --inline",
-    "start": "npm run build && nodewebkit app/",
-    "release": "npm run build && grunt release",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "nw": "npm run build && nodewebkit app/",
+    "start": "node app/server",
+    "release": "npm run build && grunt release"
   },
   "author": "Richard Willis",
   "license": "MIT",
@@ -17,5 +17,11 @@
     "grunt-node-webkit-builder": "^0.1.21",
     "nodewebkit": "^0.9.2-7",
     "vulcanize": "^0.3.0"
+  },
+  "dependencies": {
+    "express": "^4.4.5",
+    "konphyg": "^1.4.0",
+    "nconf": "^0.6.9",
+    "twit": "^1.1.15"
   }
 }
