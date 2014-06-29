@@ -18,9 +18,11 @@ var twitter = new Twitter({
 
 app.use('/', express.static(__dirname));
 
-app.get('/timeline/:username', function(req, res, next) {
+app.get('/timeline/:username/:count/:max_id?', function(req, res, next) {
   twitter.get('/statuses/user_timeline', { 
-    screen_name: req.params.username
+    screen_name: req.params.username,
+    count: req.params.count,
+    max_id: req.params.max_id
   }, function(err, data, response) {
     if (err) res.json({error: err});
     else res.json({success: data});

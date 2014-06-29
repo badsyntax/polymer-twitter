@@ -4,40 +4,59 @@
   max-width: 400px;
 }
 
-/* line 6, form-username.scss */
+/* line 7, form-username.scss */
 form {
   padding: 20px;
   border: 1px solid #bbb;
   border-radius: 5px;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
   -webkit-animation-duration: .6s;
+  -webkit-animation-name: slidein;
+}
+/* line 14, form-username.scss */
+form.fadeout {
+  -webkit-animation-duration: .6s;
+  -webkit-animation-name: fadeout;
+  -webkit-animation-fill-mode: forwards;
 }
 
-/* line 15, form-username.scss */
+/* line 21, form-username.scss */
 core-input {
   border: 1px solid #444;
 }
 
-/* line 19, form-username.scss */
+/* line 25, form-username.scss */
 label {
   padding-right: 10px;
 }
 
-/* line 23, form-username.scss */
+/* line 29, form-username.scss */
 .help {
   margin-top: 0;
 }
 
 @-webkit-keyframes slidein {
-  /* line 28, form-username.scss */
+  /* line 34, form-username.scss */
   from {
     -webkit-transform: translate(0, 100%);
     opacity: 0;
   }
 
-  /* line 32, form-username.scss */
+  /* line 38, form-username.scss */
   to {
     -webkit-transform: translate(0, 0);
     opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  /* line 45, form-username.scss */
+  from {
+    opacity: 1;
+  }
+
+  /* line 48, form-username.scss */
+  to {
+    opacity: 0;
   }
 }

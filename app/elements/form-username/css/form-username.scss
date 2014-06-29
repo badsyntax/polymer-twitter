@@ -1,6 +1,7 @@
 :host {
   margin: auto;
   max-width: 400px;
+
 }
 
 form {
@@ -9,7 +10,12 @@ form {
   border-radius: 5px;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
   -webkit-animation-duration: .6s;
-  // -webkit-animation-name: slidein;
+  -webkit-animation-name: slidein;
+  &.fadeout {
+    -webkit-animation-duration: .6s;
+    -webkit-animation-name: fadeout;
+    -webkit-animation-fill-mode: forwards;
+  }
 }
 
 core-input {
@@ -32,5 +38,14 @@ label {
   to {
     -webkit-transform: translate(0, 0);
     opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }

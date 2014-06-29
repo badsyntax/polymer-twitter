@@ -4,7 +4,9 @@
   <template>
     <link rel="stylesheet" href="css/site-banner.css">
     <header>
-      <h1>{{name}}</h1>
+      <h1>
+        <a href="/">{{name}}</a>
+      </h1>
       <template if="{{slogan}}">
         <summary>{{slogan}}</summary>
       </template>

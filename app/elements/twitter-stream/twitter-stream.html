@@ -1,43 +1,67 @@
 <link rel="import" href="../../components/polymer/polymer.html">
 <link rel="import" href="../../components/core-ajax/core-ajax.html">
+<link rel="import" href="../site-spinner/site-spinner.html">
 
 <polymer-element name="twitter-stream" extends="core-ajax" block>
   <template>
     <link rel="stylesheet" href="css/twitter-stream.css">
     <core-ajax
     id="ajax"
-    url="http://localhost:3000/timeline/{{ username }}"
+    url="http://localhost:3000/timeline/{{username}}/{{count}}/{{maxId}}"
     handleAs="json"
     on-core-response="{{handleResponse}}"></core-ajax>
     <div id="tweets">
-      <template if="{{loading}}">Loading stream...</template>
       <template repeat="{{tweet in tweets}}">
         <div class="tweet" on-click="{{viewTweet}}">{{tweet.text}}</div>
       </template>
-    </div>
+      <template if="{{!tweets.length && loaded}}">
+        No tweets.
+      </template>
+      <footer>
+        <template if="{{loading}}">
+          <site-spinner></site-spinner>
+        </template>
+        <template if="{{!loading}}">
+          <paper-button on-click="{{more}}" raisedButton label="More Tweets"></paper-button>
+        </template>
+      </footer>
   </template>
   <script>
   Polymer('twitter-stream', {
     username: '',
     loading: false,
-    tweets: null,
+    loaded: false,
+    count: 10,
+    maxId: '',
+    created: function() {
+      this.tweets = [];
+    },
     ready: function() {
     },
     go: function(username) {
-      this.username = username;
+      this.username = username || this.username;
       this.loading = true;
       this.fire('start');
+      if (this.tweets.length) {
+        this.maxId = this.tweets[this.tweets.length-1].id;
+      }
       this.$.ajax.go();
     },
+    more: function() {
+      this.go();
+    },
     handleResponse: function(e, response) {
+      
       this.loading = false;
+      this.loaded = true;
       this.fire('stop');
+
       var data = response.response;
       if (data.error) {
         this.fire('error');
       } else {
         this.fire('success');
-        this.tweets = data.success;
+        this.tweets = this.tweets.concat(data.success);
       }
     },
     viewTweet: function(e, detail, sender) {

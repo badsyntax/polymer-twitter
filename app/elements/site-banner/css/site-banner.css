@@ -10,3 +10,8 @@
 h1 {
   margin: 0;
 }
+/* line 10, site-banner.scss */
+h1 a {
+  color: #fff;
+  text-decoration: none;
+}

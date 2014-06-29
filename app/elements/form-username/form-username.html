@@ -3,7 +3,7 @@
 <link rel="import" href="../../components/paper-input/paper-input.html">
 <link rel="import" href="../../components/paper-button/paper-button.html">
 
-<polymer-element name="form-username" attributes="method action username errors" block>
+<polymer-element name="form-username" attributes="method action username errors">
   <template>
     <link rel="stylesheet" href="css/form-username.css">
     <form id="form" method="{{method}}" action="{{action}}">
@@ -36,14 +36,29 @@
       };
     },
     submitForm: function() {
+
       if (this.username.length === 0) {
         this.$.username.invalid = true;
         this.focus();
         return;
       }
-      this.fire('success', {
-        username: this.username
+
+      var animation = new Animation(this.$.form, [
+        {opacity: "1"}, 
+        {opacity: "0"}, 
+      ], {
+        duration: 200, 
+        fill: 'forwards'
       });
+
+      var player = document.timeline.play(animation);
+
+      player.onfinish = function(e) {
+        this.fire('success', {
+          username: this.username
+        });
+        console.dir(player);
+      }.bind(this);
     }
   });
   </script>

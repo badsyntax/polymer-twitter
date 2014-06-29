@@ -6,15 +6,21 @@
 
 #tweets {
   max-width: 600px;
-  margin: auto;
-  padding: 20px;
+  margin: 15px auto;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  footer {
+    text-align: center;
+    padding: 20px;
+  }
 }
 
 .tweet {
   display: block;
-  border-radius: 5px;
-  border: 1px solid #aaa;
   padding: 12px;
-  margin-bottom: 15px;
   cursor: pointer;
+  border-bottom: 1px solid #ccc;
+  &:hover {
+    background: #eee;
+  }
 }

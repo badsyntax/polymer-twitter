@@ -8,16 +8,24 @@
 /* line 7, twitter-stream.scss */
 #tweets {
   max-width: 600px;
-  margin: auto;
+  margin: 15px auto;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+}
+/* line 12, twitter-stream.scss */
+#tweets footer {
+  text-align: center;
   padding: 20px;
 }
 
-/* line 13, twitter-stream.scss */
+/* line 18, twitter-stream.scss */
 .tweet {
   display: block;
-  border-radius: 5px;
-  border: 1px solid #aaa;
   padding: 12px;
-  margin-bottom: 15px;
   cursor: pointer;
+  border-bottom: 1px solid #ccc;
+}
+/* line 23, twitter-stream.scss */
+.tweet:hover {
+  background: #eee;
 }
