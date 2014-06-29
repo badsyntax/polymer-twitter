@@ -2,12 +2,12 @@
 <link rel="import" href="../../components/core-ajax/core-ajax.html">
 <link rel="import" href="../site-spinner/site-spinner.html">
 
-<polymer-element name="twitter-stream" extends="core-ajax" block>
+<polymer-element name="twitter-stream" block>
   <template>
     <link rel="stylesheet" href="css/twitter-stream.css">
     <core-ajax
     id="ajax"
-    url="http://localhost:3000/timeline/{{username}}/{{count}}/{{maxId}}"
+    url="{{url}}"
     handleAs="json"
     on-core-response="{{handleResponse}}"></core-ajax>
     <div id="tweets">
@@ -33,6 +33,7 @@
     loaded: false,
     count: 10,
     maxId: '',
+    url: '',
     created: function() {
       this.tweets = [];
     },
@@ -46,6 +47,7 @@
       if (this.tweets.length) {
         this.maxId = this.tweets[this.tweets.length-1].id;
       }
+      this.url = window.location.protocol + '//' + window.location.host + '/timeline/' + this.username + '/' + this.count + '/' + this.maxId;
       this.$.ajax.go();
     },
     more: function() {
