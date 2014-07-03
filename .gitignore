@@ -3,16 +3,16 @@ node_modules
 npm-debug.log
 
 # Bower components
-/web/components
+/public/components
 
 # Sass
 .sass-cache
 
 # App build
-/web/build.html
-/web/build.js
+/public/build.html
+/public/build.js
 
-# Node webkit build
+# Node publickit build
 /build
 
 # Env config

@@ -9,7 +9,16 @@
     <form id="form" method="{{method}}" action="{{action}}">
       <p class="help">Enter your twitter username below to view your stream:</p>
       <core-field>
-        <paper-input id="username" label="Username:" type="text" name="username" value="{{username}}" flex></paper-input>
+        <paper-input
+          id="username"
+          validate="^[a-zA-Z0-9]+$"
+          required
+          on-keypress="{{keypressHandler}}"
+          label="Username:"
+          name="username"
+          value="{{username}}"
+          flex>
+        </paper-input>
       </core-field>
       <core-field>
         <paper-button on-click="{{submitForm}}" raisedButton label="View tweets!"></paper-button>
@@ -18,52 +27,29 @@
   </template>
   <script>
   Polymer('form-username', {
-    username: '',
+    username: 'badsyntax',
     password: '',
     action: '',
     method: 'post',
     ready: function() {
-      this.setupValidators();
-      this.focus();
-    },
-    focus: function() {
       this.$.username.$.input.focus();
+
     },
-    setupValidators: function() {
-      this.$.username.validate = function() {
-        var value = this.toString();
-        return /^[a-zA-Z0-9]+$/.test(value);
-      };
+    keypressHandler: function(e) {
+      // enter key pressed
+      if (e.keyCode === 13) this.submitForm();
     },
     submitForm: function() {
 
-      if (this.username.length === 0) {
+      if (this.$.username.invalid || !this.$.username.value.length) {
         this.$.username.invalid = true;
-        this.focus();
+        this.$.username.$.input.focus();
         return;
       }
 
-      var animation = new Animation(this.$.form, [
-        {
-          opacity: "1",
-          transform: 'translate(0, 0)'
-        }, 
-        {
-          opacity: "0",
-          transform: 'translate(0, -100%)'
-        }, 
-      ], {
-        duration: 500, 
-        fill: 'forwards'
+      this.fire('success', {
+        username: this.username
       });
-
-      var player = document.timeline.play(animation);
-
-      player.onfinish = function(e) {
-        this.fire('success', {
-          username: this.username
-        });
-      }.bind(this);
     }
   });
   </script>

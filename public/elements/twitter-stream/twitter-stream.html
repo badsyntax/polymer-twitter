@@ -38,7 +38,7 @@
       this.tweets = [];
     },
     ready: function() {
-      
+
     },
     go: function(username) {
       this.username = username || this.username;
@@ -47,14 +47,20 @@
       if (this.tweets.length) {
         this.maxId = this.tweets[this.tweets.length-1].id;
       }
-      this.url = window.location.protocol + '//' + window.location.host + '/timeline/' + this.username + '/' + this.count + '/' + this.maxId;
+      this.url = sprintf('%s//%s/twitter/timeline/%s/%d/%s',
+        window.location.protocol,
+        window.location.host,
+        this.username,
+        this.count,
+        this.maxId
+      );
       this.$.ajax.go();
     },
     more: function() {
       this.go();
     },
     handleResponse: function(e, response) {
-      
+
       this.loading = false;
       this.loaded = true;
       this.fire('stop');

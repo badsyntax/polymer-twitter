@@ -1,0 +1,35 @@
+<link rel="import" href="../form-username/form-username.html">
+<link rel="import" href="../../components/core-layout/core-layout.html">
+
+<polymer-element name="page-home">
+  <template>
+    <core-layout fit>
+      <form-username id="form" on-success="{{onFormSuccess}}"></form-username>
+    </core-layout>
+  </template>
+  <script>
+  Polymer('page-home', {
+    onFormSuccess: function(e) {
+
+      e.stopPropagation();
+
+      var username = e.detail.username;
+
+      // Move the login form up and fade out
+      var player = document.timeline.play(new Animation(this.$.form, [
+        { opacity: '1', transform: 'translate(0, 0)' },
+        { opacity: '0', transform: 'translate(0, -100%)' },
+      ], {
+        duration: 500,
+        fill: 'forwards'
+      }));
+
+      player.onfinish = function(e) {
+        this.fire('success', {
+          username: username
+        });
+      }.bind(this);
+    }
+  });
+  </script>
+</polymer-element>

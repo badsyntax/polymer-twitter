@@ -15,7 +15,9 @@
     "vulcanize": "^0.3.0"
   },
   "dependencies": {
+    "body-parser": "^1.4.3",
     "express": "^4.4.5",
+    "morgan": "^1.1.1",
     "nconf": "^0.6.9",
     "twit": "^1.1.15"
   }

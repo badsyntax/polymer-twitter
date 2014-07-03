@@ -18,3 +18,8 @@ site-progress::shadow #activeProgress {
 site-progress::shadow #progressContainer {
   background-color: #4F7DC9;
 }
+
+/* line 18, global.scss */
+site-pages {
+  overflow: auto;
+}
