@@ -1,31 +1,30 @@
 /* line 1, twitter-stream.scss */
 :host {
-  margin: auto;
   min-width: 400px;
   overflow: auto;
 }
 
-/* line 7, twitter-stream.scss */
+/* line 6, twitter-stream.scss */
 #tweets {
   max-width: 600px;
   margin: 15px auto;
   border-radius: 5px;
   border: 1px solid #aaa;
 }
-/* line 12, twitter-stream.scss */
+/* line 11, twitter-stream.scss */
 #tweets footer {
   text-align: center;
   padding: 20px;
 }
 
-/* line 18, twitter-stream.scss */
+/* line 17, twitter-stream.scss */
 .tweet {
   display: block;
   padding: 12px;
   cursor: pointer;
   border-bottom: 1px solid #ccc;
 }
-/* line 23, twitter-stream.scss */
+/* line 22, twitter-stream.scss */
 .tweet:hover {
   background: #eee;
 }

@@ -2,6 +2,7 @@
 :host {
   margin: auto;
   max-width: 400px;
+  display: block;
 }
 
 /* line 7, form-username.scss */

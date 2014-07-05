@@ -1,11 +1,4 @@
-/* line 5, site-pages.scss */
-core-pages {
-  overflow: hidden;
-}
-
-/* line 9, site-pages.scss */
-form-username {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* line 1, site-pages.scss */
+:host {
+  overflow: auto;
 }

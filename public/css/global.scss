@@ -2,19 +2,3 @@ body {
   font-family: Arial;
   font-size: 14px;
 }
-
-site-progress {
-  width: 100%;
-}
-
-site-progress::shadow #activeProgress {
-  background-color: #fff;
-}
-
-site-progress::shadow #progressContainer {
-  background-color: #4F7DC9;
-}
-
-site-pages {
-  overflow: auto;
-}

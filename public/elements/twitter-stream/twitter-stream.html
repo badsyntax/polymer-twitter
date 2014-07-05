@@ -10,7 +10,7 @@
     url="{{url}}"
     handleAs="json"
     on-core-response="{{handleResponse}}"></core-ajax>
-    <div id="tweets">
+    <div id="tweets" flex>
       <template repeat="{{tweet in tweets}}">
         <div class="tweet" on-click="{{viewTweet}}">{{tweet.text}}</div>
       </template>
@@ -31,7 +31,7 @@
     username: '',
     loading: false,
     loaded: false,
-    count: 10,
+    count: 20,
     maxId: '',
     url: '',
     created: function() {

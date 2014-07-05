@@ -1,11 +1,13 @@
 <link rel="import" href="../form-username/form-username.html">
-<link rel="import" href="../../components/core-layout/core-layout.html">
 
 <polymer-element name="page-home">
   <template>
-    <core-layout fit>
-      <form-username id="form" on-success="{{onFormSuccess}}"></form-username>
-    </core-layout>
+    <style type="text/css">
+    :host {
+      overflow: hidden;
+    }
+    </style>
+    <form-username id="form" on-success="{{onFormSuccess}}"></form-username>
   </template>
   <script>
   Polymer('page-home', {

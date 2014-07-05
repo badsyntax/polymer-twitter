@@ -6,7 +6,6 @@
     <script src="components/web-animations-js/web-animations.js"></script>
     <script src="components/sprintf/dist/sprintf.min.js"></script>
     <link rel="stylesheet" href="css/global.css" shim-shadowdom>
-    <link rel="import" href="components/core-layout/core-layout.html">
     <link rel="import" href="elements/site-progress/site-progress.html">
     <link rel="import" href="elements/site-banner/site-banner.html">
     <link rel="import" href="elements/site-pages/site-pages.html">
@@ -15,11 +14,10 @@
     <link rel="import" href="elements/page-stream/page-stream.html">
   </head>
   <body unresolved>
-    <core-layout vertical fit>
-      <site-progress></site-progress>
+    <div layout vertical fit>
       <site-banner name="Twitter stream"></site-banner>
       <site-pages flex>
-        <page-home></page-home>
+        <page-home layout vertical></page-home>
         <page-stream></page-stream>
       </site-pages>
       <site-footer></site-footer>

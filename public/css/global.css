@@ -3,23 +3,3 @@ body {
   font-family: Arial;
   font-size: 14px;
 }
-
-/* line 6, global.scss */
-site-progress {
-  width: 100%;
-}
-
-/* line 10, global.scss */
-site-progress::shadow #activeProgress {
-  background-color: #fff;
-}
-
-/* line 14, global.scss */
-site-progress::shadow #progressContainer {
-  background-color: #4F7DC9;
-}
-
-/* line 18, global.scss */
-site-pages {
-  overflow: auto;
-}
